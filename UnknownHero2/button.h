@@ -16,8 +16,8 @@ public:
 
 	button(float position_x, float position_y, UserInterface* UI, Player* player)
 	{
-		texture.loadFromFile("button_green.png");
-		textureClicked.loadFromFile("button_red.png");
+		texture.loadFromFile("images/button_green.png");
+		textureClicked.loadFromFile("images/button_red.png");
 
 		buttonSprite.setTexture(texture);
 		buttonSprite.setPosition(position_x, position_y);

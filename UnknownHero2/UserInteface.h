@@ -14,13 +14,33 @@ private:
 	sf::Sprite HealthBar;
 	sf::Sprite HealthBarEnemy;
 
+	sf::Font pokemonfont;
+	sf::Text Attacktext;
+	sf::Text Itemstext;
+
 public:
 	UserInterface() {
-		wood.loadFromFile("wood_floor.jpg");
-		wall.loadFromFile("wall.jpg");
-		platform.loadFromFile("platform.png");
-		green.loadFromFile("green.png");
+		//load images
+		wood.loadFromFile("images/wood_floor.jpg");
+		wall.loadFromFile("images/wall.jpg");
+		platform.loadFromFile("images/platform.png");
+		green.loadFromFile("images/green.png");
 
+		//load text
+		pokemonfont.loadFromFile("fonts/Pokemon Solid.ttf");
+
+		Attacktext.setFont(pokemonfont);
+		Itemstext.setFont(pokemonfont);
+
+		Attacktext.setString("Angreifen");
+		Itemstext.setString("Items");
+
+		Attacktext.setCharacterSize(24);
+		Itemstext.setCharacterSize(24);
+
+		Attacktext.setPosition(200.0f, 680.0f);
+		Itemstext.setPosition(200.0f, 780.0f);
+		//create ui-elements
 		for (size_t i = 0; i < 6; i++)
 		{
 			blocks.push_back(new sf::Sprite);
@@ -60,6 +80,8 @@ public:
 
 			window->draw(HealthBar);
 			window->draw(HealthBarEnemy);
+			window->draw(Attacktext);
+			window->draw(Itemstext);
 		}
 		if (uiswitch == 1) {
 			for (size_t i = 3; i < blocks.size(); i++)

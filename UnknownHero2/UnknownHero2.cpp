@@ -6,19 +6,34 @@
 #include "UserInteface.h"
 #include "button.h"
 #include "player.h"
+#include "Item.h"
 
 int main()
 {
 	//Initialize Window
 	sf::RenderWindow window(sf::VideoMode(1600, 900), "Pokemon Battle", sf::Style::Close);
+
+	sf::Font pokemonfont;
+	pokemonfont.loadFromFile("fonts/Pokemon Solid.ttf");
+
+	sf::Font* pokemonfontptr;
+	pokemonfontptr = &pokemonfont;
+
 	UserInterface UI;
+
 	Player player(100);
 	Player enemie(100);
+
+	Item winitem("Golden Cup", pokemonfontptr, sf::Color::Black, "images/win.png");
+
 	button angriffbutton(100.0f, 680.0f, &UI, &enemie);
 	button itembutton(100.0f, 780.0f, &UI, &enemie);
 	button itembackbutton(200.0f, 780.0f, &UI, &enemie);
+
 	bool sideswitch = true;
 	int uiswitch = 0; // 0 = UI, 1 = Itemui, 2 = mainmenu
+
+
 
 	while (window.isOpen())
 	{
@@ -61,10 +76,13 @@ int main()
 			if (itembackbutton.check(&window)) {
 				uiswitch = 0;
 			}
+			winitem.setPositionSprite(100, 100);
+			winitem.setPositionText(300, 100);
 			window.clear();
 			//draw
 			UI.draw(&window, 1);
 			itembackbutton.draw(&window);
+			winitem.draw(&window);
 			window.display();
 		}
 		if (uiswitch == 2) {
