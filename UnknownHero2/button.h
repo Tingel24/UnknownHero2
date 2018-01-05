@@ -11,10 +11,9 @@ private:
 	sf::Time Wait_Time;
 	sf::Clock time_since_click;
 	UserInterface *UI;
-	Player *player;
 public:
 
-	button(float position_x, float position_y, UserInterface* UI, Player* player)
+	button(float position_x, float position_y, UserInterface* UI)
 	{
 		texture.loadFromFile("images/button_green.png");
 		textureClicked.loadFromFile("images/button_red.png");
@@ -27,8 +26,22 @@ public:
 		Wait_Time = sf::seconds(0.3f);
 
 		this->UI = UI;
-		this->player = player;
 	}
+
+	button(UserInterface* UI)
+	{
+		texture.loadFromFile("images/button_green.png");
+		textureClicked.loadFromFile("images/button_red.png");
+
+		buttonSprite.setTexture(texture);
+		buttonSprite.setScale(0.15f, 0.15f);
+		buttonSprite.setOrigin(buttonSprite.getLocalBounds().width / 2, buttonSprite.getLocalBounds().height / 2);
+
+		Wait_Time = sf::seconds(0.3f);
+
+		this->UI = UI;
+	}
+
 
 	~button()
 	{
@@ -57,5 +70,9 @@ public:
 
 	void draw(sf::RenderWindow *window) {
 		window->draw(buttonSprite);
+	}
+
+	void setPosition(float x, float y) {
+		buttonSprite.setPosition(x, y);
 	}
 };

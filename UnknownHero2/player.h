@@ -4,14 +4,20 @@ class Player
 {
 private:
 	int maxHealth, currentHealth;
+	
 	sf::Sprite playerSprite;
 	sf::Texture texture;
 public:
+	int attack;
+	int defense;
 
-	Player(int maxHealth)
+	Player(int maxHealth,int attack,int defense)
 	{
 		this->maxHealth = maxHealth;
 		currentHealth = maxHealth;
+
+		this->attack = attack;
+		this->defense = defense;
 	}
 
 	~Player()
