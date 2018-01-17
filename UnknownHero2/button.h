@@ -1,7 +1,8 @@
 #pragma once
+#ifndef BUTTON_H
+#define BUTTON_H
 #include <SFML/Graphics.hpp>
-#include "UserInteface.h"
-#include "player.h"
+class UserInterface;
 
 class button
 {
@@ -10,13 +11,13 @@ private:
 	sf::Sprite buttonSprite;
 	sf::Time Wait_Time;
 	sf::Clock time_since_click;
-	UserInterface *UI;
+	UserInterface* UI = NULL;
 public:
 
-	button(float position_x, float position_y, UserInterface* UI)
+	button(float position_x, float position_y, UserInterface* UI , std::string texturepath , std::string texturepathclicked )
 	{
-		texture.loadFromFile("images/button_green.png");
-		textureClicked.loadFromFile("images/button_red.png");
+		texture.loadFromFile(texturepath);
+		textureClicked.loadFromFile(texturepathclicked);
 
 		buttonSprite.setTexture(texture);
 		buttonSprite.setPosition(position_x, position_y);
@@ -41,7 +42,6 @@ public:
 
 		this->UI = UI;
 	}
-
 
 	~button()
 	{
@@ -75,4 +75,9 @@ public:
 	void setPosition(float x, float y) {
 		buttonSprite.setPosition(x, y);
 	}
+
+	void scale(float factor_x, float factor_y) {
+		buttonSprite.scale(factor_x, factor_y);
+	}
 };
+#endif

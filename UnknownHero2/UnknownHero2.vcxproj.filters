@@ -24,13 +24,19 @@
     <ClInclude Include="targetver.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="UserInteface.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="button.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedSprite.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Userinterface.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
@@ -42,6 +48,18 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="UnknownHero2.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedSprite.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
